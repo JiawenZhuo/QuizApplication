@@ -1,0 +1,35 @@
+﻿@model QuizApplication.ViewModels.QuestionViewModel
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Quiz Application";
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="col-md bg-light p-3 m-3 border justify-content-center">
+        <div class="container text-center">
+            <h1 class="display-3">@Model.Heading</h1>
+            <form method="post">
+                @foreach (var q in Model.Questions)
+                {
+                    <h1 class="display-6">@q.QuestionHeading</h1>
+                    @foreach (var c in Model.Choices)
+                    {
+                        <input class="form-check-input" type="radio" asp-for="Choices" value="@c" name="@c" />
+                        <label class="form-check-label">@c.Body</label>
+                        <br />
+                    }
+                }
+                <input type="submit" class="btn btn-outline-primary" />
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
