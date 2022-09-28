@@ -15,10 +15,8 @@ namespace QuizApplication.Models
 
         public bool FacturalStatement { get; set; }
 
-        public void ReducedBodyField()
-        {
-            Body = "";
-        }
+        public int CollectionId { get; set; }
+
     }
 }
 

@@ -6,7 +6,7 @@ namespace QuizApplication.Models
     public interface IChoiceRepository
     {
 
-        IEnumerable<Choice> GetChoicesByQuestionId { get; }
+        IEnumerable<Choice> GetChoices { get; }
 
     }
 }

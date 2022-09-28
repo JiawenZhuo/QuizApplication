@@ -11,7 +11,7 @@ namespace QuizApplication.Models
         public int QuestionId { get; set; }
         public string QuestionHeading { get; set; }
 
-        public Choices Choices { get; set; }
+        public int ChoicesId { get; set;}
     }
 }
 

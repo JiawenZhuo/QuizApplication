@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using QuizApplication.Models;
+using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.Data.SqlClient;
 
 namespace QuizApplication
 {
@@ -25,11 +27,12 @@ namespace QuizApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IQuestionRepository, MockQuestionRepo>();
-            services.AddScoped<IChoiceRepository, MockChoiceRepo>();
+            services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<IChoiceRepository, ChoiceRepository>();
+
             services.AddDbContext<AppDbContext>(options =>
-            
-                options.UseSqlServer("name=ConnectionStrings:DefaultConnection"));
+
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             ////services.AddSingleton<IQuestionRepository, MockQuestionRepo>();
             services.AddControllersWithViews();

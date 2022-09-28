@@ -34,7 +34,6 @@ namespace QuizApplication.Controllers
 
             };
             questionViewModel.Questions = _questionRepository.AllQuestions;
-            questionViewModel.Choices = _choiceRepository.GetChoicesByQuestionId;
        
             questionViewModel.Heading = "Welcome, take a quiz";
 

@@ -1,11 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace QuizApplication.Models
 {
-    public class QuestionRepository
+    public class QuestionRepository: IQuestionRepository
     {
-        public QuestionRepository()
+        private readonly AppDbContext _appDbContext;
+
+        public QuestionRepository(AppDbContext appDbContext)
         {
+            _appDbContext = appDbContext;
         }
+
+        public IEnumerable<Question> AllQuestions => _appDbContext.questions;
     }
 }
 

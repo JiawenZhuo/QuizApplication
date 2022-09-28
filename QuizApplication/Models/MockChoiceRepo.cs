@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace QuizApplication.Models
 {
-    public class MockChoiceRepo: IChoiceRepository
+    public class MockChoiceRepo
     {
  
         public static IEnumerable<Choice> firstChoicesList => new List<Choice>
@@ -15,10 +15,10 @@ namespace QuizApplication.Models
                 new Choice{Body="Milan",ChoiceId=4,Title="d", FacturalStatement=false},
             };
 
-        public IEnumerable<Choices> choiceCollection = new List<Choices>
+        public IEnumerable<ChoiceCollection> choiceCollections = new List<ChoiceCollection>
         {
-           new Choices{ChoicesId = 1, ChoicesOfQuestion = firstChoicesList, CurrentQuestionId = 1},
-           new Choices{ChoicesId = 2, ChoicesOfQuestion = firstChoicesList, CurrentQuestionId = 1}
+           new ChoiceCollection{ChoiceCollectionId = 1,  QuestionId = 1},
+           new ChoiceCollection{ChoiceCollectionId = 2,  QuestionId = 1}
         };
 
         public IEnumerable<Choice> GetChoicesByQuestionId => firstChoicesList;
