@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace QuizApplication.Models
 {
@@ -13,6 +14,20 @@ namespace QuizApplication.Models
         }
 
         public IEnumerable<Choice> GetChoices => _appDbContext.choices;
+
+        public IEnumerable<Choice> GetChoicesById(int id)
+        {
+            List<Choice> choices = new List<Choice>();
+            foreach (Choice c in _appDbContext.choices)
+            {
+
+                if (c.CollectionId == id)
+                {
+                    choices.Add(c);
+                }
+            }
+            return choices;
+        }
 
     }
 }

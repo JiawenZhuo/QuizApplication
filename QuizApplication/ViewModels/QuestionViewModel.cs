@@ -15,6 +15,12 @@ namespace QuizApplication.ViewModels
         public Question Current { get; set; }
 
         public string Heading { get; set; }
+
+        public Question RandomQuestion { get; set; }
+
+        public IEnumerable<Choice> CurrentChoices { get; set; }
+
+        public IEnumerable<Choice> GetChoicesById { get; set; }
     }
 }
 

@@ -10,6 +10,8 @@ namespace QuizApplication.ViewModels
         public Question Question { get; set; }
 
         public Choice Choice { get; set; }
+        public ChoiceCollection ChoiceCollection { get; set; }
+
     }
 }
 

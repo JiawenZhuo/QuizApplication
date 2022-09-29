@@ -13,6 +13,8 @@ namespace QuizApplication.Models
 
         public DbSet<ChoiceCollection> choiceCollection{get; set; }
 
+        public DbSet<Choice> getChoicesById { get; set; }
+
         protected  override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

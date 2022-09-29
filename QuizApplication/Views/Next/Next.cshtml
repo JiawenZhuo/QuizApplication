@@ -1,8 +1,13 @@
-﻿@model QuizApplication.ViewModels.QuestionViewModel
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model QuizApplication.ViewModels.QuestionViewModel
 
 @{
     Layout = null;
-    ViewData["Title"] = "Quiz Application";
+    ViewData["Title"] = "Quiz Application ";
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -14,7 +19,7 @@
 <body>
     <div class="col-md bg-light p-3 m-3 border justify-content-center">
         <div class="container text-center">
-            <h1>@Model.Current.QuestionHeading</h1>
+            <h1>next</h1>
             <h1 class="display-3">@Model.Heading</h1>
 @*            <form method="post">
                 @foreach (var q in Model.Questions)
@@ -45,7 +50,7 @@
                     }
        
                 <input type="submit" class="btn btn-outline-primary" />
-                <a asp-controller="NextQuestion" asp-action="Next" asp-route-id="@Model.Current.QuestionId"> next</a>
+                <a asp-controller="Question" asp-action="List" asp-route-id="@Model.Current.(QuestionId +1)"> next</a>
             </form>
 
         </div>

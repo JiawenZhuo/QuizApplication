@@ -10,33 +10,20 @@ using System.Collections.Generic;
 
 namespace QuizApplication.Controllers
 {
-    public class QuestionController : Controller {
+    public class NextQuestionController : Controller
+    {
         private readonly IQuestionRepository _questionRepository;
         private readonly IChoiceRepository _choiceRepository;
         private int _questionCount;
 
-        public QuestionController(IQuestionRepository questionRepository, IChoiceRepository choiceRepository)
+        public NextQuestionController(IQuestionRepository questionRepository, IChoiceRepository choiceRepository)
         {
             this._questionRepository = questionRepository;
             this._choiceRepository = choiceRepository;
         }
-        public ViewResult List1()
+
+        public Question GetById(int Id)
         {
-            QuestionViewModel questionViewModel = new QuestionViewModel()
-            {
-
-            };
-            questionViewModel.Questions = _questionRepository.AllQuestions;
-            questionViewModel.Choices = _choiceRepository.GetChoices;
-            questionViewModel.Heading = "Welcome, take a quiz";
-
-            //var question = questionViewModel.Questions.ToList().SingleOrDefault(x => x.QuestionId == id);
-
-
-            return View(questionViewModel);
-
-        }
-        public Question GetById(int Id) {
 
             foreach (Question q in _questionRepository.AllQuestions)
             {
@@ -61,27 +48,6 @@ namespace QuizApplication.Controllers
             int rrNum = rnd.Next(0, 16);
             Question question = this.GetById(rrNum);
             return View();
-        }
-        public ActionResult List()
-        {
-            QuestionViewModel questionViewModel = new QuestionViewModel()
-            {
-
-            };
-            questionViewModel.Questions = _questionRepository.AllQuestions;
-            questionViewModel.Choices = _choiceRepository.GetChoices;
-            questionViewModel.Heading = "Welcome, take a quiz";
-
-            Random rnd = new Random(this._questionCount);
-            int rrNum = rnd.Next(1, _questionCount+1);
-            Question question = this.GetById(rrNum);
-            questionViewModel.Current = question;
-            List<Question> list = new List<Question>();
-            questionViewModel.CurrentChoices =GetChoicesById(rrNum);
-
-
-            return View(questionViewModel);
-
         }
 
 
@@ -108,10 +74,9 @@ namespace QuizApplication.Controllers
             };
             nextQuestionViewModel.Current = question;
             nextQuestionViewModel.Choices = GetChoicesById(id);
-            return View(nextQuestionViewModel); 
+            return View(nextQuestionViewModel);
         }
-       
+
 
     }
 }
-

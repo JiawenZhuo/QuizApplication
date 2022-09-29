@@ -10,8 +10,7 @@ namespace QuizApplication.Models
             _appDbContext = AppDbContext;
         }
 
-        public IEnumerable<ChoiceCollection> GetCollection => _appDbContext.choiceCollection;
+        public IEnumerable<ChoiceCollection> GetAllCollection => _appDbContext.choiceCollection;
 
-        
     }
 }

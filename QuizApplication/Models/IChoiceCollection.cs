@@ -5,6 +5,7 @@ namespace QuizApplication.Models
 {
     public interface IChoiceCollection
     {
-        public IEnumerable<ChoiceCollection> GetCollection {get; }
+        public IEnumerable<ChoiceCollection> GetAllCollection {get; }
+
     }
 }

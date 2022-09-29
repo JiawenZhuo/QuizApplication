@@ -8,6 +8,7 @@ namespace QuizApplication.Models
 
         IEnumerable<Choice> GetChoices { get; }
 
+        public IEnumerable<Choice> GetChoicesById(int id);
     }
 }
 
